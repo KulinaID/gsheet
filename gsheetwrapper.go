@@ -23,7 +23,7 @@ func (s *Wrapper) BatchClear(clearRange string) (err error) {
 	req := &sheets.BatchClearValuesRequest{}
 	req.Ranges = []string{clearRange}
 
-	fmt.Println("Clearing target sheet")
+	fmt.Println("Clearing target sheet " + s.spreadsheetID)
 	_, err = s.srv.Spreadsheets.Values.BatchClear(s.spreadsheetID, req).Do()
 	return
 }
@@ -40,7 +40,7 @@ func (s *Wrapper) Update(writeRange string, sheetRow SheetDataInput) (
 		value: "USER_ENTERED",
 	}
 
-	fmt.Println("Writing to target sheet")
+	fmt.Println("Writing to target sheet " + s.spreadsheetID)
 	_, err = s.srv.Spreadsheets.Values.Update(s.spreadsheetID, writeRange,
 		values).Do(valueInputOpt)
 	if err != nil {
