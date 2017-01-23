@@ -48,6 +48,7 @@ func (s *Wrapper) Update(writeRange string, sheetRow SheetDataInput) (
 	}
 
 	fmt.Println("Success updated sheet")
+	fmt.Printf("Row count: %d\n", len(sheetRow.GetSheetData()))
 
 	return
 }
